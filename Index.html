@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>IA operando EcoStruxure Machine Expert - Informe Técnico V2.3.2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 40px auto;
+            max-width: 850px;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #009639;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        .subtitle-top {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #009639;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 20pt;
+            color: #111;
+            margin: 5px 0 10px 0;
+        }
+        .meta-info {
+            font-size: 9.5pt;
+            color: #555;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .kpi-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 25px 0;
+        }
+        .kpi-card {
+            flex: 1;
+            background-color: #f0f7f4;
+            border-top: 4px solid #009639;
+            padding: 12px 8px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .kpi-number {
+            font-size: 22pt;
+            font-weight: bold;
+            color: #009639;
+            line-height: 1;
+        }
+        .kpi-label {
+            font-size: 8.5pt;
+            font-weight: bold;
+            color: #333;
+            margin-top: 6px;
+            text-transform: uppercase;
+        }
+        h2 {
+            font-size: 13pt;
+            color: #009639;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 4px;
+            margin-top: 30px;
+        }
+        .callout {
+            background-color: #fdfefe;
+            border-left: 4px solid #3498db;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 9.5pt;
+        }
+        .callout-title {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 4px;
+        }
+        ol, ul {
+            padding-left: 20px;
+            font-size: 10pt;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 9.5pt;
+        }
+        th {
+            background-color: #009639;
+            color: white;
+            text-align: left;
+            padding: 8px 10px;
+            font-weight: 600;
+        }
+        td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .badge {
+            background-color: #009639;
+            color: white;
+            border-radius: 12px;
+            padding: 2px 8px;
+            font-weight: bold;
+            display: inline-block;
+            text-align: center;
+            min-width: 20px;
+        }
+        .case-box {
+            background-color: #fff9e6;
+            border: 1px solid #ffe58f;
+            border-radius: 4px;
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            font-size: 9.5pt;
+        }
+        .case-title {
+            font-weight: bold;
+            color: #d48806;
+            margin-bottom: 4px;
+        }
+        .solution-text {
+            color: #389e0d;
+            font-weight: bold;
+        }
+        .quote-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 15px;
+            font-style: italic;
+            text-align: center;
+            margin: 25px 0;
+            font-size: 10pt;
+            color: #495057;
+        }
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 8.5pt;
+            color: #888;
+        }
+        @media print {
+            body { max-width: 100%; margin: 0; padding: 0; }
+            .kpi-card, th, .badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+
+        .layout-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px 0 30px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <p class="subtitle-top">PROYECTO DE EXPERIMENTACIÓN & APLICACIÓN TÉCNICA</p>
+        <h1>IA operando EcoStruxure Machine Expert</h1>
+        <p style="margin:0; font-size: 11pt; color: #555;">De una pregunta a un experimento real con MCP y PacDrive3</p>
+    </div>
+
+    <div class="meta-info">
+        <span><strong>Autor:</strong> Santiago Pavía</span>
+        <span><strong>Fecha:</strong> Agosto 2026</span>
+        <span><strong>Entorno:</strong> PacDrive3 / Machine Expert V2.6</span>
+    </div>
+
+    <!-- BLOQUE RESUMEN DE MÉTRICAS -->
+    <div class="kpi-container">
+        <div class="kpi-card">
+            <div class="kpi-number">90</div>
+            <div class="kpi-label">Herramientas MCP</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-number">12</div>
+            <div class="kpi-label">Dominios de Control</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-number">662</div>
+            <div class="kpi-label">Tests Automatizados</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-number">100%</div>
+            <div class="kpi-label">Canal ME Local</div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 01 -->
+    <h2>01. La pregunta</h2>
+    <p>En la ingeniería de automatización industrial, el desarrollo sobre plataformas complejas como <strong>PacDrive3</strong> exige un profundo conocimiento de estructuras, plantillas y APIs de scripting. Tras conocer el estándar abierto <strong>MCP (Model Context Protocol)</strong> en un webinar interno y corroborar la creciente inquietud de diversos clientes en ferias del sector como Advanced Factories, surgió una pregunta directa: ¿Es posible ir más allá de los asistentes de chat conversacionales y permitir que una IA opere directamente el entorno de ingeniería industrial?</p>
+    
+    <p>Así que, durante las vacaciones de verano, decidí desarrollar mi propio servidor MCP como experimento práctico con un objetivo claro: evaluar el potencial real de conectar un Modelo de Lenguaje (LLM) —en este caso Claude Desktop— directamente con <strong>EcoStruxure Machine Expert</strong> para ejecutar tareas complejas, repetitivas y propensas a errores dentro del software real de trabajo, sin intermediarios ni simulaciones opacas.</em></p>
+
+
+    <!-- SECCIÓN 02 -->
+    <h2>02. Elegir dónde ponerlo a prueba</h2>
+    <p>Para que el experimento tuviera sentido, necesitaba algo más que una demostración sencilla. Elegí <strong>PacDrive3</strong>, uno de los controladores de motion control de más alta gama del catálogo, y una de las plataformas más complejas de programar.</p>
+
+    <p>Su <em>Template Full Programming Framework</em> no es un punto de partida vacío: es una estructura completa, preparada para adaptarse a máquinas con combinaciones muy distintas de módulos, ejes y opciones de configuración. Precisamente esa complejidad lo convertía en el campo de pruebas ideal: si la IA podía aportar valor aquí, tendría sentido explorar su uso en tareas reales de ingeniería.</p>
+
+    <div class="callout">
+        <div class="callout-title">OBJETIVO DEL EXPERIMENTO</div>
+        La intención no era automatizar una tarea aislada, sino comprobar si una IA podía llegar a operar sobre el proyecto de ingeniería completo: leer su estructura, crear elementos, modificar configuraciones y trabajar directamente con el código.
+    </div>
+
+    <!-- SECCIÓN 03 -->
+    <h2>03. Cuando la idea se encuentra con la realidad</h2>
+    <p>El primer obstáculo no fue MCP, fue la propia integración con la plataforma de ingeniería. Claude podía actuar como cliente MCP desde su aplicación de escritorio, pero la API de Scripting de Machine Expert funciona sobre <strong>IronPython 2.7</strong>, mientras que el servidor MCP necesitaba ejecutarse sobre una versión moderna de Python (<strong>CPython 3.x</strong>). Los dos entornos no podían resolverse dentro de un mismo proceso.</p>
+
+    <p>La solución fue separar la arquitectura en dos partes y construir un puente específico entre ellas:</p>
+
+    <ul>
+        <li><strong>Claude Desktop:</strong> Recibe la petición en lenguaje natural y decide qué herramienta utilizar.</li>
+        <li><strong>Servidor MCP (CPython):</strong> Expone el catálogo de herramientas y traduce la decisión en una orden concreta (payload JSON).</li>
+        <li><strong>Bridge Interno (IronPython 2.7):</strong> Se ejecuta dentro de Machine Expert y llama a su API de Scripting real en el hilo principal de interfaz (GUI thread).</li>
+        <li><strong>Machine Expert:</strong> Ejecuta la operación sobre el proyecto abierto, siendo visible en todo momento para el usuario.</li>
+    </ul>
+
+    <p>MCP conecta a Claude únicamente con el servidor MCP. El tramo entre el servidor y Machine Expert es un canal aparte, construido específicamente para este proyecto — no forma parte del protocolo estándar MCP. La arquitectura completa de comunicación queda resumida en el siguiente esquema:</p>
+
+    <img src="layout.png" alt="Arquitectura del servidor MCP" class="layout-image">
+
+    <!-- SECCIÓN 04 (TABLA MEJORADA) -->
+    <h2>04. De una idea a una caja de herramientas</h2>
+    <p>Una vez resuelto el puente, apareció el siguiente reto: decidir qué debía poder hacer la IA. La respuesta fue convertir operaciones concretas de ingeniería en herramientas independientes, con funciones y parámetros bien definidos. El resultado actual es un catálogo de 90 herramientas estructuradas en 12 dominios principales (86 de ingeniería operativa y 4 de diagnóstico interno):</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 30%;">Dominio de Aplicación</th>
+                <th style="width: 15%; text-align: center;">Herramientas</th>
+                <th style="width: 55%;">Funcionalidades Principales</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Projects</strong></td>
+                <td style="text-align: center;"><span class="badge">17</span></td>
+                <td>Apertura, guardado, compilación, gestión de aplicaciones multi-controlador y consulta de ventana mensajes.</td>
+            </tr>
+            <tr>
+                <td><strong>POUs</strong></td>
+                <td style="text-align: center;"><span class="badge">9</span></td>
+                <td>Creación/edición de programas, bloques de función, funciones, métodos, acciones, propiedades y transiciones (Sólo ST).</td>
+            </tr>
+            <tr>
+                <td><strong>Folders</strong></td>
+                <td style="text-align: center;"><span class="badge">3</span></td>
+                <td>Organización jerárquica de elementos dentro del árbol de aplicaciones.</td>
+            </tr>
+            <tr>
+                <td><strong>Tree</strong></td>
+                <td style="text-align: center;"><span class="badge">5</span></td>
+                <td>Navegación, reordenación, renombrado e inventariado completo de objetos en el bus SERCOS.</td>
+            </tr>
+            <tr>
+                <td><strong>Tasks</strong></td>
+                <td style="text-align: center;"><span class="badge">8</span></td>
+                <td>Configuración de tareas cíclicas/eventos, tiempos de ciclo, prioridades y asignación de llamadas a POUs.</td>
+            </tr>
+            <tr>
+                <td><strong>Logical Encoders</strong></td>
+                <td style="text-align: center;"><span class="badge">5</span></td>
+                <td>Creación y parametrización de encoders lógicos.</td>
+            </tr>
+            <tr>
+                <td><strong>Types (DUTs)</strong></td>
+                <td style="text-align: center;"><span class="badge">5</span></td>
+                <td>Definición de estructuras (STRUCT), enumeraciones (ENUM), uniones y aliases.</td>
+            </tr>
+            <tr>
+                <td><strong>Variables Globales (GVLs)</strong></td>
+                <td style="text-align: center;"><span class="badge">8</span></td>
+                <td>Declaración y modificación de GVLs, variables retentivas/persistentes y atributos de mapeo.</td>
+            </tr>
+            <tr>
+                <td><strong>SERCOS - Lexium</strong></td>
+                <td style="text-align: center;"><span class="badge">6</span></td>
+                <td>Instanciación de servodrives LXM62/LXM52/ILM62, módulos opcionales, cambio de modelo y parámetros.</td>
+            </tr>
+            <tr>
+                <td><strong>SERCOS - TM5</strong></td>
+                <td style="text-align: center;"><span class="badge">10</span></td>
+                <td>Configuración de cabeceras de E/S remota TM5, adición de módulos y mapeo de I/O a variables.</td>
+            </tr>
+            <tr>
+                <td><strong>SERCOS - EdgeIO</strong></td>
+                <td style="text-align: center;"><span class="badge">10</span></td>
+                <td>Gestión de cabeceras de E/S remota Edge I/O, adición de módulos y mapeo de I/O a variables.</td>
+            </tr>
+            <tr>
+                <td><strong>Diagnóstics</strong></td>
+                <td style="text-align: center;"><span class="badge">4</span></td>
+                <td>Verificación de salud del bridge, latencias de canal y comprobación de integridad del entorno.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- SECCIÓN 05 -->
+    <h2>05. ¿Y qué podría aportarnos?</h2>
+    <p>Un catálogo de herramientas solo cobra sentido si resuelve problemas concretos en el flujo de trabajo real. El impacto directo se distribuye según el perfil y la responsabilidad dentro de la organización:</p>
+    <ul>
+        <li><strong>Ingeniero de aplicaciones:</strong> Libera tiempo valioso al automatizar tareas mecánicas y repetitivas en la estructuración del template, permitiendo enfocar el esfuerzo técnico en las decisiones críticas de arquitectura, lógica de control y optimización del rendimiento de máquina.</li>
+        <li><strong>Responsable de mantenimiento de proyectos:</strong> Aporta una trazabilidad completa y estructurada de cada modificación en el sistema, sustituyendo las intervenciones manuales indocumentadas por un registro transparente de cambios.</li>
+        <li><strong>Ingeniero de nueva incorporación:</strong> Acelera drásticamente el proceso de onboarding sobre el marco PacDrive3, reduciendo la curva de aprendizaje ante un entorno caracterizado por su elevada densidad y complejidad técnica.</li>
+        <li><strong>Dirección y negocio:</strong> Minimiza los riesgos operacionales en la fase inicial de desarrollo, acelera los ciclos de entrega comercial y posiciona a la organización a la vanguardia en la adopción práctica de IA aplicada a la automatización industrial.</li>
+        <li><strong>Cliente final:</strong> Permite entregas de proyectos con menor fricción en la fase de ingeniería, mayor robustez en la plataforma de más alta gama del catálogo y puestas en marcha más rápidas.</li>
+    </ul>
+
+    <!-- SECCIÓN 06 -->
+    <h2>06. Hacer que funcione no era suficiente</h2>
+    <p>A medida que crecía el catálogo apareció una cuestión crítica: ¿cómo garantizar que las herramientas ejecutan exactamente lo que prometen sin comprometer la integridad del proyecto? Se plantearon dos niveles complementarios de validación:</p>
+    <ul>
+        <li><strong>662 tests automatizados:</strong> Comprueban la coherencia interna del código, garantizando la estabilidad del servidor MCP y permitiendo iterar rápidamente ante cualquier modificación.</li>
+        <li><strong>Validación en vivo contra instalación real:</strong> Verifica los comportamientos dinámicos del API de Scripting que las simulaciones offline no pueden detectar.</li>
+    </ul>
+
+    <!-- SECCIÓN 07 -->
+    <h2>07. Lo que apareció mientras lo construía</h2>
+    <p>El experimento comenzó buscando automatizar operaciones cotidianas. Durante el desarrollo, también sacó a la luz comportamientos sutiles del software que valía la pena evidenciar:</p>
+
+    <div class="case-box">
+        <div class="case-title">Caso 1: Convertir un servodrive sin perder su configuración (Lexium LXM62 → LXM52)</div>
+        <p style="margin: 4px 0;">Tras configurar un Lexium LXM62 surgió la necesidad de sustituirlo por un LXM52. El entorno permite cambiar el tipo mediante <em>"Convert Device"</em>. La investigación reveló un detalle importante: si existen módulos hijo incompatibles con el nuevo dispositivo, se eliminan automáticamente durante la conversión sin el aviso explicativo que sí muestra la interfaz gráfica habitual.</p>
+        <p style="margin: 4px 0;" class="solution-text">✓ Solución MCP: La herramienta compara el estado del dispositivo antes y después del cambio, reportando explícitamente cualquier elemento que se haya eliminado.</p>
+    </div>
+
+    <div class="case-box">
+        <div class="case-title">Caso 2: Reordenar módulos de E/S remota sin pérdidas inadvertidas (EdgeIO)</div>
+        <p style="margin: 4px 0;">Una cabecera EdgeIO exige que su primer módulo sea de alimentación. Al reordenar la isla de módulos, extraer el primer módulo de su posición original provoca su eliminación completa de la estructura sin alerta previa.</p>
+        <p style="margin: 4px 0;" class="solution-text">✓ Solución MCP: La herramienta verifica la lista completa de elementos antes y después de cada movimiento, haciendo visible cualquier desaparición de módulo.</p>
+    </div>
+
+    <!-- SECCIÓN 08 & 09 -->
+    <h2>08. Dónde está hoy y El experimento continúa</h2>
+    <p>La primera versión del servidor tiene un alcance deliberadamente acotado y seguro: opera en modo offline sobre el proyecto abierto, con comunicación 100% local y con un catálogo de herramientas cerrado sin capacidad de ejecutar código arbitrario.</p>
+
+    <p>El roadmap para próximas iteraciones contempla:</p>
+    <ul>
+        <li><strong>Lenguajes gráficos (FBD, LD):</strong> Extender la manipulación lógica más allá de Texto Estructurado (ST).</li>
+        <li><strong>Modo online:</strong> Funciones de diagnóstico y lectura directa sobre el hardware real.</li>
+        <li><strong>Herramientas de alto nivel:</strong> Manipulación directa del template a nivel de módulos completos de máquina (*Template Modules*).</li>
+    </ul>
+
+    <!-- REFLEXIÓN FINAL INCLUIDA CON ESTÉTICA DESTACADA -->
+    <div class="quote-box">
+        <strong>Reflexión sobre la Tecnología y la Ingeniería</strong><br><br>
+        "El objetivo de la inteligencia artificial en la ingeniería de automatización no es sustituir el criterio del ingeniero, sino liberarlo de las tareas repetitivas y de baja complejidad para permitirle centrarse en la arquitectura, la optimización y la aportación de valor añadido."
+    </div>
+
+    <div class="footer">
+        <span style="font-weight: bold; color: #009639;">#ModelContextProtocol #ClaudeAI #PacDrive3 #IndustrialAutomation #EcoStruxure #InnovationMindset</span>
+        <span></span>
+    </div>
+
+</body>
+</html>

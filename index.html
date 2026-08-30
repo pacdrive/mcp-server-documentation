@@ -163,6 +163,13 @@
             body { max-width: 100%; margin: 0; padding: 0; }
             .kpi-card, th, .badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
+
+        .layout-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px 0 30px 0;
+        }
     </style>
 </head>
 <body>
@@ -229,6 +236,10 @@
         <li><strong>Bridge Interno (IronPython 2.7):</strong> Se ejecuta dentro de Machine Expert y llama a su API de Scripting real en el hilo principal de interfaz (GUI thread).</li>
         <li><strong>Machine Expert:</strong> Ejecuta la operación sobre el proyecto abierto, siendo visible en todo momento para el usuario.</li>
     </ul>
+
+    <p>MCP conecta a Claude únicamente con el servidor MCP. El tramo entre el servidor y Machine Expert es un canal aparte, construido específicamente para este proyecto — no forma parte del protocolo estándar MCP. La arquitectura completa de comunicación queda resumida en el siguiente esquema:</p>
+
+    <img src="layout.PNG" alt="Arquitectura del servidor MCP" class="layout-image">
 
     <!-- SECCIÓN 04 (TABLA MEJORADA) -->
     <h2>04. De una idea a una caja de herramientas</h2>

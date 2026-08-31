@@ -254,65 +254,66 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><strong>Projects</strong></td>
+             <tr>
+                <td><strong>Proyectos y aplicaciones</strong></td>
                 <td style="text-align: center;"><span class="badge">17</span></td>
-                <td>Apertura, guardado, compilación, gestión de aplicaciones multi-controlador y consulta de ventana mensajes.</td>
+                <td>Abrir, cerrar y guardar proyectos; listar las aplicaciones de un controlador; compilar y consultar los mensajes de compilación por categoría; elegir a qué controlador van dirigidas las siguientes órdenes en un proyecto con varios.</td>
             </tr>
             <tr>
-                <td><strong>POUs</strong></td>
+                <td><strong>Programas y bloques (POUs)</strong></td>
                 <td style="text-align: center;"><span class="badge">9</span></td>
-                <td>Creación/edición de programas, bloques de función, funciones, métodos, acciones, propiedades y transiciones (Sólo ST).</td>
+                <td>Crear y editar programas, funciones y bloques de función, junto con sus acciones, métodos, propiedades y transiciones; leer y modificar tanto el área de declaración de variables como el código fuente de cada uno.</td>
             </tr>
             <tr>
-                <td><strong>Folders</strong></td>
+                <td><strong>Carpetas</strong></td>
                 <td style="text-align: center;"><span class="badge">3</span></td>
-                <td>Organización jerárquica de elementos dentro del árbol de aplicaciones.</td>
+                <td>Organizar el árbol del proyecto en carpetas, y localizarlas por su ruta de nombres.</td>
             </tr>
             <tr>
-                <td><strong>Tree</strong></td>
+                <td><strong>Árbol del proyecto</strong></td>
                 <td style="text-align: center;"><span class="badge">5</span></td>
-                <td>Navegación, reordenación, renombrado e inventariado completo de objetos en el bus SERCOS.</td>
+                <td>Renombrar, mover, reordenar y eliminar cualquier elemento del proyecto; inventariar todo lo que cuelga de un bus SERCOS sin importar de qué familia de dispositivo se trate.</td>
             </tr>
             <tr>
-                <td><strong>Tasks</strong></td>
+                <td><strong>Tareas</strong></td>
                 <td style="text-align: center;"><span class="badge">8</span></td>
-                <td>Configuración de tareas cíclicas/eventos, tiempos de ciclo, prioridades y asignación de llamadas a POUs.</td>
+                <td>Crear tareas de ejecución, configurarlas, y asignar, ordenar o modificar las llamadas a programas dentro de ellas.</td>
             </tr>
             <tr>
-                <td><strong>Logical Encoders</strong></td>
+            <td><strong>Encoders lógicos</strong></td>
                 <td style="text-align: center;"><span class="badge">5</span></td>
-                <td>Creación y parametrización de encoders lógicos.</td>
+                <td>Crear encoders lógicos y leer o modificar sus parámetros de configuración.</td>
             </tr>
+
             <tr>
-                <td><strong>Types (DUTs)</strong></td>
+                <td><strong>Tipos de datos (DUTs)</strong></td>
                 <td style="text-align: center;"><span class="badge">5</span></td>
-                <td>Definición de estructuras (STRUCT), enumeraciones (ENUM), uniones y aliases.</td>
+                <td>Definir tipos de datos propios — estructuras, enumeraciones, uniones y alias.</td>
             </tr>
             <tr>
-                <td><strong>Variables Globales (GVLs)</strong></td>
+                <td><strong>Variables globales (GVLs)</strong></td>
                 <td style="text-align: center;"><span class="badge">8</span></td>
-                <td>Declaración y modificación de GVLs, variables retentivas/persistentes y atributos de mapeo.</td>
+                <td>Crear y editar listas de variables globales y variables persistentes.</td>
             </tr>
             <tr>
-                <td><strong>SERCOS - Lexium</strong></td>
+                <td><strong>SERCOS — Lexium</strong></td>
                 <td style="text-align: center;"><span class="badge">6</span></td>
-                <td>Instanciación de servodrives LXM62/LXM52/ILM62, módulos opcionales, cambio de modelo y parámetros.</td>
+                <td>Crear servodrives y módulos de eje sobre el bus SERCOS; cambiar el tipo de un servodrive ya creado sin perder su configuración; leer y modificar sus parámetros.</td>
             </tr>
             <tr>
-                <td><strong>SERCOS - TM5</strong></td>
+                <td><strong>SERCOS — TM5</strong></td>
                 <td style="text-align: center;"><span class="badge">10</span></td>
-                <td>Configuración de cabeceras de E/S remota TM5, adición de módulos y mapeo de I/O a variables.</td>
+                <td>Crear cabeceras y módulos de E/S remota TM5, elegirlos a partir del catálogo instalado, y mapear sus entradas/salidas a variables del proyecto.</td>
             </tr>
             <tr>
-                <td><strong>SERCOS - EdgeIO</strong></td>
+                <td><strong>SERCOS — EdgeIO</strong></td>
                 <td style="text-align: center;"><span class="badge">10</span></td>
-                <td>Gestión de cabeceras de E/S remota Edge I/O, adición de módulos y mapeo de I/O a variables.</td>
+                <td>Lo mismo que TM5, sobre la familia de E/S remota Modicon Edge I/O.</td>
             </tr>
             <tr>
-                <td><strong>Diagnóstics</strong></td>
+                <td><strong>Diagnósticos</strong></td>
                 <td style="text-align: center;"><span class="badge">4</span></td>
-                <td>Verificación de salud del bridge, latencias de canal y comprobación de integridad del entorno.</td>
+                <td>Comprobar el estado de la conexión con Machine Expert, y verificar internamente que ciertas garantías de la propia plataforma se mantienen ciertas (uso interno de validación, no herramientas de ingeniería diaria).</td>
             </tr>
         </tbody>
     </table>
@@ -332,7 +333,7 @@
     <h2>06. Hacer que funcione no era suficiente</h2>
     <p>A medida que crecía el catálogo apareció una cuestión crítica: ¿cómo garantizar que las herramientas ejecutan exactamente lo que prometen sin comprometer la integridad del proyecto? Se plantearon dos niveles complementarios de validación:</p>
     <ul>
-        <li><strong>662 tests automatizados:</strong> Comprueban la coherencia interna del código, garantizando la estabilidad del servidor MCP y permitiendo iterar rápidamente ante cualquier modificación.</li>
+        <li><strong>662 tests automatizados:</strong> Comprueban la coherencia interna del código, garantizando la estabilidad del servidor MCP y permitiendo iterar rápidamente ante cualquier modificación. Estos tests se ejecutan de forma independiente de EcoStruxure Machine Expert, sin necesidad de abrir ni ejecutar el entorno de ingeniería.</li>
         <li><strong>Validación en vivo contra instalación real:</strong> Verifica los comportamientos dinámicos del API de Scripting que las simulaciones offline no pueden detectar.</li>
     </ul>
 

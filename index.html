@@ -200,15 +200,6 @@
             font-size: 10pt;
             color: #495057;
         }
-        .footer {
-            margin-top: 30px;
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 8.5pt;
-            color: #888;
-        }
 
         @media print {
             body { max-width: 100%; margin: 0; padding: 0; }
@@ -267,7 +258,6 @@
         [data-lang].active-lang {
             display: block;
         }
-        /* Específico para elementos inline o flex si procede */
         span[data-lang].active-lang, strong[data-lang].active-lang {
             display: inline;
         }
@@ -296,9 +286,9 @@
     </div>
 
     <div class="meta-info">
-        <span><strong data-lang="es">Autor:</strong><strong data-lang="en">Author:</strong> Santiago Pavía</span>
-        <span><strong data-lang="es">Fecha:</strong><strong data-lang="en">Date:</strong> Agosto 2026 / August 2026</span>
-        <span><strong data-lang="es">Entorno:</strong><strong data-lang="en">Environment:</strong> PacDrive3 / Machine Expert V2.6</span>
+        <span><strong data-lang="es" class="active-lang">Autor:</strong><strong data-lang="en">Author:</strong> Santiago Pavía</span>
+        <span><strong data-lang="es" class="active-lang">Fecha:</strong><strong data-lang="en">Date:</strong> Agosto 2026 / August 2026</span>
+        <span><strong data-lang="es" class="active-lang">Entorno:</strong><strong data-lang="en">Environment:</strong> PacDrive3 / Machine Expert V2.6</span>
     </div>
 
     <!-- BLOQUE RESUMEN DE MÉTRICAS -->
@@ -405,89 +395,137 @@
             </tr>
         </thead>
         <tbody>
-             <tr>
-                <td data-lang="es"><strong>Proyectos y aplicaciones</strong></td>
-                <td data-lang="en"><strong>Projects & Applications</strong></td>
+            <tr>
+                <td>
+                    <span data-lang="es"><strong>Proyectos y aplicaciones</strong></span>
+                    <span data-lang="en"><strong>Projects & Applications</strong></span>
+                </td>
                 <td style="text-align: center;"><span class="badge">17</span></td>
-                <td data-lang="es">Abrir, cerrar y guardar proyectos; listar las aplicaciones de un controlador; compilar y consultar los mensajes de compilación por categoría; elegir a qué controlador van dirigidas las siguientes órdenes en un proyecto con varios.</td>
-                <td data-lang="en">Open, close, and save projects; list controller applications; compile and check compilation messages by category; choose which controller receives subsequent commands in multi-controller projects.</td>
+                <td>
+                    <span data-lang="es">Abrir, cerrar y guardar proyectos; listar las aplicaciones de un controlador; compilar y consultar los mensajes de compilación por categoría; elegir a qué controlador van dirigidas las siguientes órdenes en un proyecto con varios.</span>
+                    <span data-lang="en">Open, close, and save projects; list controller applications; compile and check compilation messages by category; choose which controller receives subsequent commands in multi-controller projects.</span>
+                </td>
             </tr>
             <tr>
-                <td data-lang="es"><strong>Programas y bloques (POUs)</strong></td>
-                <td data-lang="en"><strong>Programs & Blocks (POUs)</strong></td>
+                <td>
+                    <span data-lang="es"><strong>Programas y bloques (POUs)</strong></span>
+                    <span data-lang="en"><strong>Programs & Blocks (POUs)</strong></span>
+                </td>
                 <td style="text-align: center;"><span class="badge">9</span></td>
-                <td data-lang="es">Crear y editar programas, funciones y bloques de función, junto con sus acciones, métodos, propiedades y transiciones; leer y modificar tanto el área de declaración de variables como el código fuente de cada uno.</td>
-                <td data-lang="en">Create and edit programs, functions, and function blocks, along with actions, methods, properties, and transitions; read and modify variable declaration areas and source code.</td>
+                <td>
+                    <span data-lang="es">Crear y editar programas, funciones y bloques de función, junto con sus acciones, métodos, propiedades y transiciones; leer y modificar tanto el área de declaración de variables como el código fuente de cada uno.</span>
+                    <span data-lang="en">Create and edit programs, functions, and function blocks, along with actions, methods, properties, and transitions; read and modify variable declaration areas and source code.</span>
+                </td>
             </tr>
             <tr>
-                <td data-lang="es"><strong>Carpetas</strong></td>
-                <td data-lang="en"><strong>Folders</strong></td>
+                <td>
+                    <span data-lang="es"><strong>Carpetas</strong></span>
+                    <span data-lang="en"><strong>Folders</strong></span>
+                </td>
                 <td style="text-align: center;"><span class="badge">3</span></td>
-                <td data-lang="es">Organizar el árbol del proyecto en carpetas, y localizarlas por su ruta de nombres.</td>
-                <td data-lang="en">Organize project tree into folders and locate them by name path.</td>
+                <td>
+                    <span data-lang="es">Organizar el árbol del proyecto en carpetas, y localizarlas por su ruta de nombres.</span>
+                    <span data-lang="en">Organize project tree into folders and locate them by name path.</span>
+                </td>
             </tr>
             <tr>
-                <td data-lang="es"><strong>Árbol del proyecto</strong></td>
-                <td data-lang="en"><strong>Project Tree</strong></td>
+                <td>
+                    <span data-lang="es"><strong>Árbol del proyecto</strong></span>
+                    <span data-lang="en"><strong>Project Tree</strong></span>
+                </td>
                 <td style="text-align: center;"><span class="badge">5</span></td>
-                <td data-lang="es">Renombrar, mover, reordenar y eliminar cualquier elemento del proyecto; inventariar todo lo que cuelga de un bus SERCOS sin importar de qué familia de dispositivo se trate.</td>
-                <td data-lang="en">Rename, move, reorder, and delete any project element; inventory everything hanging off a SERCOS bus regardless of device family.</td>
+                <td>
+                    <span data-lang="es">Renombrar, mover, reordenar y eliminar cualquier elemento del proyecto; inventariar todo lo que cuelga de un bus SERCOS sin importar de qué familia de dispositivo se trate.</span>
+                    <span data-lang="en">Rename, move, reorder, and delete any project element; inventory everything hanging off a SERCOS bus regardless of device family.</span>
+                </td>
             </tr>
             <tr>
-                <td data-lang="es"><strong>Tareas</strong></td>
-                <td data-lang="en"><strong>Tasks</strong></td>
+                <td>
+                    <span data-lang="es"><strong>Tareas</strong></span>
+                    <span data-lang="en"><strong>Tasks</strong></span>
+                </td>
                 <td style="text-align: center;"><span class="badge">8</span></td>
-                <td data-lang="es">Crear tareas de ejecución, configurarlas, y asignar, ordenar o modificar las llamadas a programas dentro de ellas.</td>
-                <td data-lang="en">Create execution tasks, configure them, and assign, order, or modify program calls within them.</td>
+                <td>
+                    <span data-lang="es">Crear tareas de ejecución, configurarlas, y asignar, ordenar o modificar las llamadas a programas dentro de ellas.</span>
+                    <span data-lang="en">Create execution tasks, configure them, and assign, order, or modify program calls within them.</span>
+                </td>
             </tr>
             <tr>
-                <td data-lang="es"><strong>Encoders lógicos</strong></td>
-                <td data-lang="en"><strong>Logical Encoders</strong></td>
+                <td>
+                    <span data-lang="es"><strong>Encoders lógicos</strong></span>
+                    <span data-lang="en"><strong>Logical Encoders</strong></span>
+                </td>
                 <td style="text-align: center;"><span class="badge">5</span></td>
-                <td data-lang="es">Crear encoders lógicos y leer o modificar sus parámetros de configuración.</td>
-                <td data-lang="en">Create logical encoders and read or modify their configuration parameters.</td>
+                <td>
+                    <span data-lang="es">Crear encoders lógicos y leer o modificar sus parámetros de configuración.</span>
+                    <span data-lang="en">Create logical encoders and read or modify their configuration parameters.</span>
+                </td>
             </tr>
             <tr>
-                <td data-lang="es"><strong>Tipos de datos (DUTs)</strong></td>
-                <td data-lang="en"><strong>Data Types (DUTs)</strong></td>
+                <td>
+                    <span data-lang="es"><strong>Tipos de datos (DUTs)</strong></span>
+                    <span data-lang="en"><strong>Data Types (DUTs)</strong></span>
+                </td>
                 <td style="text-align: center;"><span class="badge">5</span></td>
-                <td data-lang="es">Definir tipos de datos propios — estructuras, enumeraciones, uniones y alias.</td>
-                <td data-lang="en">Define custom data types — structures, enumerations, unions, and aliases.</td>
+                <td>
+                    <span data-lang="es">Definir tipos de datos propios — estructuras, enumeraciones, uniones y alias.</span>
+                    <span data-lang="en">Define custom data types — structures, enumerations, unions, and aliases.</span>
+                </td>
             </tr>
             <tr>
-                <td data-lang="es"><strong>Variables globales (GVLs)</strong></td>
-                <td data-lang="en"><strong>Global Variables (GVLs)</strong></td>
+                <td>
+                    <span data-lang="es"><strong>Variables globales (GVLs)</strong></span>
+                    <span data-lang="en"><strong>Global Variable Lists (GVLs)</strong></span>
+                </td>
                 <td style="text-align: center;"><span class="badge">8</span></td>
-                <td data-lang="es">Crear y editar listas de variables globales y variables persistentes.</td>
-                <td data-lang="en">Create and edit global variable lists and persistent variables.</td>
+                <td>
+                    <span data-lang="es">Crear y editar listas de variables globales y variables persistentes.</span>
+                    <span data-lang="en">Create and edit global variable lists and persistent variables.</span>
+                </td>
             </tr>
             <tr>
-                <td data-lang="es"><strong>SERCOS — Lexium</strong></td>
-                <td data-lang="en"><strong>SERCOS — Lexium</strong></td>
+                <td>
+                    <span data-lang="es"><strong>SERCOS — Lexium</strong></span>
+                    <span data-lang="en"><strong>SERCOS — Lexium</strong></span>
+                </td>
                 <td style="text-align: center;"><span class="badge">6</span></td>
-                <td data-lang="es">Crear servodrives y módulos de eje sobre el bus SERCOS; cambiar el tipo de un servodrive ya creado sin perder su configuración; leer y modificar sus parámetros.</td>
-                <td data-lang="en">Create servo drives and axis modules on the SERCOS bus; change the type of an existing servo drive without losing configuration; read and modify parameters.</td>
+                <td>
+                    <span data-lang="es">Crear servodrives y módulos de eje sobre el bus SERCOS; cambiar el tipo de un servodrive ya creado sin perder su configuración; leer y modificar sus parámetros.</span>
+                    <span data-lang="en">Create servo drives and axis modules on the SERCOS bus; change the type of an existing servo drive without losing configuration; read and modify parameters.</span>
+                </td>
             </tr>
             <tr>
-                <td data-lang="es"><strong>SERCOS — TM5</strong></td>
-                <td data-lang="en"><strong>SERCOS — TM5</strong></td>
+                <td>
+                    <span data-lang="es"><strong>SERCOS — TM5</strong></span>
+                    <span data-lang="en"><strong>SERCOS — TM5</strong></span>
+                </td>
                 <td style="text-align: center;"><span class="badge">10</span></td>
-                <td data-lang="es">Crear cabeceras y módulos de E/S remota TM5, elegirlos a partir del catálogo instalado, y mapear sus entradas/salidas a variables del proyecto.</td>
-                <td data-lang="en">Create TM5 remote I/O head modules and slices from the installed catalog, and map inputs/outputs to project variables.</td>
+                <td>
+                    <span data-lang="es">Crear cabeceras y módulos de E/S remota TM5, elegirlos a partir del catálogo instalado, y mapear sus entradas/salidas a variables del proyecto.</span>
+                    <span data-lang="en">Create TM5 remote I/O head modules and slices from the installed catalog, and map inputs/outputs to project variables.</span>
+                </td>
             </tr>
             <tr>
-                <td data-lang="es"><strong>SERCOS — EdgeIO</strong></td>
-                <td data-lang="en"><strong>SERCOS — EdgeIO</strong></td>
+                <td>
+                    <span data-lang="es"><strong>SERCOS — EdgeIO</strong></span>
+                    <span data-lang="en"><strong>SERCOS — EdgeIO</strong></span>
+                </td>
                 <td style="text-align: center;"><span class="badge">10</span></td>
-                <td data-lang="es">Lo mismo que TM5, sobre la familia de E/S remota Modicon Edge I/O.</td>
-                <td data-lang="en">Same as TM5, on the Modicon Edge I/O remote I/O family.</td>
+                <td>
+                    <span data-lang="es">Lo mismo que TM5, sobre la familia de E/S remota Modicon Edge I/O.</span>
+                    <span data-lang="en">Same as TM5, on the Modicon Edge I/O remote I/O family.</span>
+                </td>
             </tr>
             <tr>
-                <td data-lang="es"><strong>Diagnósticos</strong></td>
-                <td data-lang="en"><strong>Diagnostics</strong></td>
+                <td>
+                    <span data-lang="es"><strong>Diagnósticos</strong></span>
+                    <span data-lang="en"><strong>Diagnostics</strong></span>
+                </td>
                 <td style="text-align: center;"><span class="badge">4</span></td>
-                <td data-lang="es">Comprobar el estado de la conexión con Machine Expert, y verificar internamente que ciertas garantías de la propia plataforma se mantienen ciertas (uso interno de validación, no herramientas de ingeniería diaria).</td>
-                <td data-lang="en">Check connection status with Machine Expert and internally verify that platform guarantees hold true (internal validation use, not daily engineering tools).</td>
+                <td>
+                    <span data-lang="es">Comprobar el estado de la conexión con Machine Expert, y verificar internamente que ciertas garantías de la propia plataforma se mantienen ciertas (uso interno de validación, no herramientas de ingeniería diaria).</span>
+                    <span data-lang="en">Check connection status with Machine Expert and internally verify that platform guarantees hold true (internal validation use, not daily engineering tools).</span>
+                </td>
             </tr>
         </tbody>
     </table>

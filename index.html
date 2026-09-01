@@ -12,7 +12,7 @@
     </script>
 
     <meta charset="UTF-8">
-    <title>IA operando EcoStruxure Machine Expert - Informe Técnico V2.3.2</title>
+    <title data-i18n="doc_title">IA operando EcoStruxure Machine Expert - Informe Técnico V2.3.2</title>
 
     <!-- ETIQUETAS OPEN GRAPH -->
     <meta property="og:title" content="IA + EcoStruxure Machine Expert | Informe Técnico" />
@@ -34,7 +34,39 @@
             border-bottom: 2px solid #009639;
             padding-bottom: 15px;
             margin-bottom: 25px;
+            position: relative;
         }
+        /* SELECTOR DE IDIOMA DISCRETO Y ELEGANTE */
+        .lang-selector {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            background: #f0f7f4;
+            border: 1px solid #d0e8df;
+            border-radius: 4px;
+            overflow: hidden;
+            font-size: 8.5pt;
+            font-weight: bold;
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            color: #555;
+            transition: all 0.2s;
+            font-weight: bold;
+        }
+        .lang-btn.active {
+            background: #009639;
+            color: white;
+        }
+        .lang-btn:hover:not(.active) {
+            background: #e1f3eb;
+            color: #009639;
+        }
+
         .subtitle-top {
             font-size: 11pt;
             font-weight: bold;
@@ -181,6 +213,7 @@
         @media print {
             body { max-width: 100%; margin: 0; padding: 0; }
             .kpi-card, th, .badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .lang-selector { display: none; }
         }
 
         .layout-image {
@@ -198,7 +231,7 @@
         }
         .video-card {
             flex: 1;
-            min-width: 280px; /* Asegura un tamaño mínimo en móviles */
+            min-width: 280px;
             background: #f8f9fa;
             border: 1px solid #e1e1e1;
             border-radius: 6px;
@@ -221,169 +254,260 @@
             line-height: 1.4;
         }
         
-        /* En pantallas pequeñas (móviles) los vídeos pasan a estar uno debajo del otro */
         @media (max-width: 650px) {
             .video-grid {
                 flex-direction: column;
             }
         }
 
+        /* Control multilenguaje CSS oculto por defecto para evitar parpadeos */
+        [data-lang] {
+            display: none;
+        }
+        [data-lang].active-lang {
+            display: block;
+        }
+        /* Específico para elementos inline o flex si procede */
+        span[data-lang].active-lang, strong[data-lang].active-lang {
+            display: inline;
+        }
+        div[data-lang].active-lang {
+            display: block;
+        }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <p class="subtitle-top">PROYECTO DE EXPERIMENTACIÓN & APLICACIÓN TÉCNICA</p>
-        <h1>IA operando EcoStruxure Machine Expert</h1>
-        <p style="margin:0; font-size: 11pt; color: #555;">De una pregunta a un experimento real con MCP y PacDrive3</p>
+        <!-- Selector de Idioma -->
+        <div class="lang-selector">
+            <button class="lang-btn active" id="btn-es" onclick="setLanguage('es')">ES</button>
+            <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+        </div>
+
+        <p class="subtitle-top" data-lang="es" data-key="sub_top">PROYECTO DE EXPERIMENTACIÓN & APLICACIÓN TÉCNICA</p>
+        <p class="subtitle-top" data-lang="en" data-key="sub_top">EXPERIMENTATION & TECHNICAL APPLICATION PROJECT</p>
+
+        <h1 data-lang="es" data-key="h1_title">IA operando EcoStruxure Machine Expert</h1>
+        <h1 data-lang="en" data-key="h1_title">AI Operating EcoStruxure Machine Expert</h1>
+
+        <p style="margin:0; font-size: 11pt; color: #555;" data-lang="es" data-key="header_desc">De una pregunta a un experimento real con MCP y PacDrive3</p>
+        <p style="margin:0; font-size: 11pt; color: #555;" data-lang="en" data-key="header_desc">From a question to a real experiment with MCP and PacDrive3</p>
     </div>
 
     <div class="meta-info">
-        <span><strong>Autor:</strong> Santiago Pavía</span>
-        <span><strong>Fecha:</strong> Agosto 2026</span>
-        <span><strong>Entorno:</strong> PacDrive3 / Machine Expert V2.6</span>
+        <span><strong data-lang="es">Autor:</strong><strong data-lang="en">Author:</strong> Santiago Pavía</span>
+        <span><strong data-lang="es">Fecha:</strong><strong data-lang="en">Date:</strong> Agosto 2026 / August 2026</span>
+        <span><strong data-lang="es">Entorno:</strong><strong data-lang="en">Environment:</strong> PacDrive3 / Machine Expert V2.6</span>
     </div>
 
     <!-- BLOQUE RESUMEN DE MÉTRICAS -->
     <div class="kpi-container">
         <div class="kpi-card">
             <div class="kpi-number">90</div>
-            <div class="kpi-label">Herramientas MCP</div>
+            <div class="kpi-label" data-lang="es">Herramientas MCP</div>
+            <div class="kpi-label" data-lang="en">MCP Tools</div>
         </div>
         <div class="kpi-card">
             <div class="kpi-number">12</div>
-            <div class="kpi-label">Dominios de Control</div>
+            <div class="kpi-label" data-lang="es">Dominios de Control</div>
+            <div class="kpi-label" data-lang="en">Control Domains</div>
         </div>
         <div class="kpi-card">
             <div class="kpi-number">662</div>
-            <div class="kpi-label">Tests Automatizados</div>
+            <div class="kpi-label" data-lang="es">Tests Automatizados</div>
+            <div class="kpi-label" data-lang="en">Automated Tests</div>
         </div>
         <div class="kpi-card">
             <div class="kpi-number">100%</div>
-            <div class="kpi-label">Canal ME Local</div>
+            <div class="kpi-label" data-lang="es">Canal ME Local</div>
+            <div class="kpi-label" data-lang="en">Local ME Channel</div>
         </div>
     </div>
 
     <!-- SECCIÓN 01 -->
-    <h2>01. La pregunta</h2>
-    <p>En la ingeniería de automatización industrial, el desarrollo sobre plataformas complejas como <strong>PacDrive3</strong> exige un profundo conocimiento de estructuras, plantillas y APIs de scripting. Tras conocer el estándar abierto <strong>MCP (Model Context Protocol)</strong> en un webinar interno y corroborar la creciente inquietud de diversos clientes en ferias del sector como Advanced Factories, surgió una pregunta directa: ¿Es posible ir más allá de los asistentes de chat conversacionales y permitir que una IA opere directamente el entorno de ingeniería industrial?</p>
+    <h2 data-lang="es">01. La pregunta</h2>
+    <h2 data-lang="en">01. The Question</h2>
     
-    <p>Así que, durante las vacaciones de verano, decidí desarrollar mi propio servidor MCP como experimento práctico con un objetivo claro: evaluar el potencial real de utilizar un modelo de lenguaje a través de Claude Desktop para operar directamente sobre <strong>EcoStruxure Machine Expert</strong>, ejecutando tareas complejas, repetitivas y propensas a errores dentro del software real de trabajo, sin intermediarios ni simulaciones opacas.</em></p>
+    <p data-lang="es">En la ingeniería de automatización industrial, el desarrollo sobre plataformas complejas como <strong>PacDrive3</strong> exige un profundo conocimiento de estructuras, plantillas y APIs de scripting. Tras conocer el estándar abierto <strong>MCP (Model Context Protocol)</strong> en un webinar técnico y corroborar la creciente inquietud de diversos clientes en ferias del sector como Advanced Factories, surgió una pregunta directa: ¿Es posible ir más allá de los asistentes de chat conversacionales y permitir que una IA opere directamente el entorno de ingeniería industrial?</p>
+    <p data-lang="en">In industrial automation engineering, development on complex platforms such as <strong>PacDrive3</strong> requires deep knowledge of structures, templates, and scripting APIs. After learning about the open standard <strong>MCP (Model Context Protocol)</strong> in a technical webinar and confirming the growing interest of various clients at industry trade shows like Advanced Factories, a direct question arose: Is it possible to go beyond conversational chat assistants and allow an AI to directly operate the industrial engineering environment?</p>
+    
+    <p data-lang="es">Así que, durante las vacaciones de verano, decidí desarrollar mi propio servidor MCP como experimento práctico con un objetivo claro: evaluar el potencial real de utilizar un modelo de lenguaje a través de Claude Desktop para operar directamente sobre <strong>EcoStruxure Machine Expert</strong>, ejecutando tareas complejas, repetitivas y propensas a errores dentro del software real de trabajo, sin intermediarios ni simulaciones opacas.</p>
+    <p data-lang="en">So, during the summer break, I decided to develop my own MCP server as a practical experiment with a clear objective: to evaluate the real potential of using a language model via Claude Desktop to operate directly on <strong>EcoStruxure Machine Expert</strong>, executing complex, repetitive, and error-prone tasks within the actual work software, without intermediaries or opaque simulations.</p>
 
     <!-- SECCIÓN 02 -->
-    <h2>02. Elegir dónde ponerlo a prueba</h2>
-    <p>Para que el experimento tuviera sentido, necesitaba algo más que una demostración sencilla. Elegí <strong>PacDrive3</strong>, uno de los controladores de motion control de más alta gama del catálogo, y una de las plataformas más complejas de programar.</p>
+    <h2 data-lang="es">02. Elegir dónde ponerlo a prueba</h2>
+    <h2 data-lang="en">02. Choosing Where to Test It</h2>
+    
+    <p data-lang="es">Para que el experimento tuviera sentido, necesitaba algo más que una demostración sencilla. Elegí <strong>PacDrive3</strong> —el sistema de <em>motion control</em> de alto rendimiento de Schneider Electric para la maquinaria más compleja— y una de las plataformas más complejas de programar.</p>
+    <p data-lang="en">For the experiment to make sense, I needed more than a simple demo. I chose <strong>PacDrive3</strong> —Schneider Electric's high-performance motion control system for the most complex machinery— and one of the most challenging platforms to program.</p>
 
-    <p>Su <em>Template Full Programming Framework</em> no es un punto de partida vacío: es una estructura completa, preparada para adaptarse a máquinas con combinaciones muy distintas de módulos, ejes y opciones de configuración. Precisamente esa complejidad lo convertía en el campo de pruebas ideal: si la IA podía aportar valor aquí, tendría sentido explorar su uso en tareas reales de ingeniería.</p>
+    <p data-lang="es">Su <em>Template Full Programming Framework</em> no es un punto de partida vacío: es una estructura completa, preparada para adaptarse a máquinas con combinaciones muy distintas de módulos, ejes y opciones de configuración. Precisamente esa complejidad lo convertía en el campo de pruebas ideal: si la IA podía aportar valor aquí, tendría sentido explorar su uso en tareas reales de ingeniería.</p>
+    <p data-lang="en">Its <em>Template Full Programming Framework</em> is not an empty starting point: it is a complete structure, prepared to adapt to machines with very different combinations of modules, axes, and configuration options. Precisely that complexity made it the ideal testbed: if AI could add value here, it would make sense to explore its use in real engineering tasks.</p>
 
     <div class="callout">
-        <div class="callout-title">OBJETIVO DEL EXPERIMENTO</div>
-        La intención no era automatizar una tarea aislada, sino comprobar si una IA podía llegar a operar sobre el proyecto de ingeniería completo: leer su estructura, crear elementos, modificar configuraciones y trabajar directamente con el código.
+        <div class="callout-title" data-lang="es">OBJETIVO DEL EXPERIMENTO</div>
+        <div class="callout-title" data-lang="en">EXPERIMENT OBJECTIVE</div>
+        <span data-lang="es">La intención no era automatizar una tarea aislada, sino comprobar si una IA podía llegar a operar sobre el proyecto de ingeniería completo: leer su estructura, crear elementos, modificar configuraciones y trabajar directamente con el código.</span>
+        <span data-lang="en">The intention was not to automate an isolated task, but to check whether an AI could operate on the complete engineering project: reading its structure, creating elements, modifying configurations, and working directly with the code.</span>
     </div>
 
     <!-- SECCIÓN 03 -->
-    <h2>03. Cuando la idea se encuentra con la realidad</h2>
-    <p>El primer obstáculo no fue MCP, fue la propia integración con la plataforma de ingeniería. Claude podía actuar como cliente MCP desde su aplicación de escritorio, pero la API de Scripting de Machine Expert funciona sobre <strong>IronPython 2.7</strong>, mientras que el servidor MCP necesitaba ejecutarse sobre una versión moderna de Python (<strong>CPython 3.x</strong>). Los dos entornos no podían resolverse dentro de un mismo proceso.</p>
+    <h2 data-lang="es">03. Cuando la idea se encuentra con la realidad</h2>
+    <h2 data-lang="en">03. When the Idea Meets Reality</h2>
+    
+    <p data-lang="es">El primer obstáculo no fue MCP, fue la propia integración con la plataforma de ingeniería. Claude podía actuar como cliente MCP desde su aplicación de escritorio, pero la API de Scripting de Machine Expert funciona sobre <strong>IronPython 2.7</strong>, mientras que el servidor MCP necesitaba ejecutarse sobre una versión moderna de Python (<strong>CPython 3.x</strong>). Los dos entornos no podían resolverse dentro de un mismo proceso.</p>
+    <p data-lang="en">The first obstacle was not MCP, but the integration with the engineering platform itself. Claude could act as an MCP client from its desktop app, but Machine Expert's Scripting API runs on <strong>IronPython 2.7</strong>, whereas the MCP server needed to run on a modern Python version (<strong>CPython 3.x</strong>). Both environments could not be resolved within a single process.</p>
 
-    <p>La solución fue separar la arquitectura en dos partes y construir un puente específico entre ellas:</p>
+    <p data-lang="es">La solución fue separar la arquitectura en dos partes y construir un puente específico entre ellas:</p>
+    <p data-lang="en">The solution was to separate the architecture into two parts and build a specific bridge between them:</p>
 
-    <ul>
+    <ul data-lang="es">
         <li><strong>Claude Desktop:</strong> Recibe la petición en lenguaje natural y decide qué herramienta utilizar.</li>
         <li><strong>Servidor MCP (CPython):</strong> Expone el catálogo de herramientas y traduce la decisión en una orden concreta (payload JSON).</li>
         <li><strong>Bridge Interno (IronPython 2.7):</strong> Se ejecuta dentro de Machine Expert y llama a su API de Scripting real en el hilo principal de interfaz (GUI thread).</li>
         <li><strong>Machine Expert:</strong> Ejecuta la operación sobre el proyecto abierto, siendo visible en todo momento para el usuario.</li>
     </ul>
+    <ul data-lang="en">
+        <li><strong>Claude Desktop:</strong> Receives the natural language request and decides which tool to use.</li>
+        <li><strong>MCP Server (CPython):</strong> Exposes the tool catalog and translates the decision into a concrete command (JSON payload).</li>
+        <li><strong>Internal Bridge (IronPython 2.7):</strong> Runs inside Machine Expert and calls its real Scripting API on the main UI thread (GUI thread).</li>
+        <li><strong>Machine Expert:</strong> Executes the operation on the open project, remaining visible to the user at all times.</li>
+    </ul>
 
-    <p>MCP conecta a Claude únicamente con el servidor MCP. El tramo entre el servidor y Machine Expert es un canal aparte, construido específicamente para este proyecto — no forma parte del protocolo estándar MCP. La arquitectura completa de comunicación queda resumida en el siguiente esquema:</p>
+    <p data-lang="es">MCP conecta a Claude únicamente con el servidor MCP. El tramo entre el servidor y Machine Expert es un canal aparte, construido específicamente para este proyecto — no forma parte del protocolo estándar MCP. La arquitectura completa de comunicación queda resumida en el siguiente esquema:</p>
+    <p data-lang="en">MCP connects Claude exclusively to the MCP server. The leg between the server and Machine Expert is a separate channel, built specifically for this project — it is not part of the standard MCP protocol. The complete communication architecture is summarized in the following diagram:</p>
 
     <img src="layout.PNG" alt="Arquitectura del servidor MCP" class="layout-image">
 
-    <!-- SECCIÓN 04 (TABLA MEJORADA) -->
-    <h2>04. De una idea a una caja de herramientas</h2>
-    <p>Una vez resuelto el puente, apareció el siguiente reto: decidir qué debía poder hacer la IA. La respuesta fue convertir operaciones concretas de ingeniería en herramientas independientes, con funciones y parámetros bien definidos. El resultado actual es un catálogo de 90 herramientas estructuradas en 12 dominios principales (86 de ingeniería operativa y 4 de diagnóstico interno):</p>
+    <!-- SECCIÓN 04 -->
+    <h2 data-lang="es">04. De una idea a una caja de herramientas</h2>
+    <h2 data-lang="en">04. From an Idea to a Toolbox</h2>
+    
+    <p data-lang="es">Una vez resuelto el puente, apareció el siguiente reto: decidir qué debía poder hacer la IA. La respuesta fue convertir operaciones concretas de ingeniería en herramientas independientes, con funciones y parámetros bien definidos. El resultado actual es un catálogo de 90 herramientas estructuradas en 12 dominios principales (86 de ingeniería operativa y 4 de diagnóstico interno):</p>
+    <p data-lang="en">Once the bridge was solved, the next challenge appeared: deciding what the AI should be able to do. The answer was to turn concrete engineering operations into independent tools with well-defined functions and parameters. The current result is a catalog of 90 tools structured into 12 main domains (86 operational engineering tools and 4 internal diagnostic tools):</p>
 
     <table>
         <thead>
             <tr>
-                <th style="width: 30%;">Dominio de Aplicación</th>
-                <th style="width: 15%; text-align: center;">Herramientas</th>
-                <th style="width: 55%;">Funcionalidades Principales</th>
+                <th style="width: 30%;">
+                    <span data-lang="es">Dominio de Aplicación</span>
+                    <span data-lang="en">Application Domain</span>
+                </th>
+                <th style="width: 15%; text-align: center;">
+                    <span data-lang="es">Herramientas</span>
+                    <span data-lang="en">Tools</span>
+                </th>
+                <th style="width: 55%;">
+                    <span data-lang="es">Funcionalidades Principales</span>
+                    <span data-lang="en">Main Features</span>
+                </th>
             </tr>
         </thead>
         <tbody>
              <tr>
-                <td><strong>Proyectos y aplicaciones</strong></td>
+                <td data-lang="es"><strong>Proyectos y aplicaciones</strong></td>
+                <td data-lang="en"><strong>Projects & Applications</strong></td>
                 <td style="text-align: center;"><span class="badge">17</span></td>
-                <td>Abrir, cerrar y guardar proyectos; listar las aplicaciones de un controlador; compilar y consultar los mensajes de compilación por categoría; elegir a qué controlador van dirigidas las siguientes órdenes en un proyecto con varios.</td>
+                <td data-lang="es">Abrir, cerrar y guardar proyectos; listar las aplicaciones de un controlador; compilar y consultar los mensajes de compilación por categoría; elegir a qué controlador van dirigidas las siguientes órdenes en un proyecto con varios.</td>
+                <td data-lang="en">Open, close, and save projects; list controller applications; compile and check compilation messages by category; choose which controller receives subsequent commands in multi-controller projects.</td>
             </tr>
             <tr>
-                <td><strong>Programas y bloques (POUs)</strong></td>
+                <td data-lang="es"><strong>Programas y bloques (POUs)</strong></td>
+                <td data-lang="en"><strong>Programs & Blocks (POUs)</strong></td>
                 <td style="text-align: center;"><span class="badge">9</span></td>
-                <td>Crear y editar programas, funciones y bloques de función, junto con sus acciones, métodos, propiedades y transiciones; leer y modificar tanto el área de declaración de variables como el código fuente de cada uno.</td>
+                <td data-lang="es">Crear y editar programas, funciones y bloques de función, junto con sus acciones, métodos, propiedades y transiciones; leer y modificar tanto el área de declaración de variables como el código fuente de cada uno.</td>
+                <td data-lang="en">Create and edit programs, functions, and function blocks, along with actions, methods, properties, and transitions; read and modify variable declaration areas and source code.</td>
             </tr>
             <tr>
-                <td><strong>Carpetas</strong></td>
+                <td data-lang="es"><strong>Carpetas</strong></td>
+                <td data-lang="en"><strong>Folders</strong></td>
                 <td style="text-align: center;"><span class="badge">3</span></td>
-                <td>Organizar el árbol del proyecto en carpetas, y localizarlas por su ruta de nombres.</td>
+                <td data-lang="es">Organizar el árbol del proyecto en carpetas, y localizarlas por su ruta de nombres.</td>
+                <td data-lang="en">Organize project tree into folders and locate them by name path.</td>
             </tr>
             <tr>
-                <td><strong>Árbol del proyecto</strong></td>
+                <td data-lang="es"><strong>Árbol del proyecto</strong></td>
+                <td data-lang="en"><strong>Project Tree</strong></td>
                 <td style="text-align: center;"><span class="badge">5</span></td>
-                <td>Renombrar, mover, reordenar y eliminar cualquier elemento del proyecto; inventariar todo lo que cuelga de un bus SERCOS sin importar de qué familia de dispositivo se trate.</td>
+                <td data-lang="es">Renombrar, mover, reordenar y eliminar cualquier elemento del proyecto; inventariar todo lo que cuelga de un bus SERCOS sin importar de qué familia de dispositivo se trate.</td>
+                <td data-lang="en">Rename, move, reorder, and delete any project element; inventory everything hanging off a SERCOS bus regardless of device family.</td>
             </tr>
             <tr>
-                <td><strong>Tareas</strong></td>
+                <td data-lang="es"><strong>Tareas</strong></td>
+                <td data-lang="en"><strong>Tasks</strong></td>
                 <td style="text-align: center;"><span class="badge">8</span></td>
-                <td>Crear tareas de ejecución, configurarlas, y asignar, ordenar o modificar las llamadas a programas dentro de ellas.</td>
+                <td data-lang="es">Crear tareas de ejecución, configurarlas, y asignar, ordenar o modificar las llamadas a programas dentro de ellas.</td>
+                <td data-lang="en">Create execution tasks, configure them, and assign, order, or modify program calls within them.</td>
             </tr>
             <tr>
-            <td><strong>Encoders lógicos</strong></td>
+                <td data-lang="es"><strong>Encoders lógicos</strong></td>
+                <td data-lang="en"><strong>Logical Encoders</strong></td>
                 <td style="text-align: center;"><span class="badge">5</span></td>
-                <td>Crear encoders lógicos y leer o modificar sus parámetros de configuración.</td>
+                <td data-lang="es">Crear encoders lógicos y leer o modificar sus parámetros de configuración.</td>
+                <td data-lang="en">Create logical encoders and read or modify their configuration parameters.</td>
             </tr>
-
             <tr>
-                <td><strong>Tipos de datos (DUTs)</strong></td>
+                <td data-lang="es"><strong>Tipos de datos (DUTs)</strong></td>
+                <td data-lang="en"><strong>Data Types (DUTs)</strong></td>
                 <td style="text-align: center;"><span class="badge">5</span></td>
-                <td>Definir tipos de datos propios — estructuras, enumeraciones, uniones y alias.</td>
+                <td data-lang="es">Definir tipos de datos propios — estructuras, enumeraciones, uniones y alias.</td>
+                <td data-lang="en">Define custom data types — structures, enumerations, unions, and aliases.</td>
             </tr>
             <tr>
-                <td><strong>Variables globales (GVLs)</strong></td>
+                <td data-lang="es"><strong>Variables globales (GVLs)</strong></td>
+                <td data-lang="en"><strong>Global Variables (GVLs)</strong></td>
                 <td style="text-align: center;"><span class="badge">8</span></td>
-                <td>Crear y editar listas de variables globales y variables persistentes.</td>
+                <td data-lang="es">Crear y editar listas de variables globales y variables persistentes.</td>
+                <td data-lang="en">Create and edit global variable lists and persistent variables.</td>
             </tr>
             <tr>
-                <td><strong>SERCOS — Lexium</strong></td>
+                <td data-lang="es"><strong>SERCOS — Lexium</strong></td>
+                <td data-lang="en"><strong>SERCOS — Lexium</strong></td>
                 <td style="text-align: center;"><span class="badge">6</span></td>
-                <td>Crear servodrives y módulos de eje sobre el bus SERCOS; cambiar el tipo de un servodrive ya creado sin perder su configuración; leer y modificar sus parámetros.</td>
+                <td data-lang="es">Crear servodrives y módulos de eje sobre el bus SERCOS; cambiar el tipo de un servodrive ya creado sin perder su configuración; leer y modificar sus parámetros.</td>
+                <td data-lang="en">Create servo drives and axis modules on the SERCOS bus; change the type of an existing servo drive without losing configuration; read and modify parameters.</td>
             </tr>
             <tr>
-                <td><strong>SERCOS — TM5</strong></td>
+                <td data-lang="es"><strong>SERCOS — TM5</strong></td>
+                <td data-lang="en"><strong>SERCOS — TM5</strong></td>
                 <td style="text-align: center;"><span class="badge">10</span></td>
-                <td>Crear cabeceras y módulos de E/S remota TM5, elegirlos a partir del catálogo instalado, y mapear sus entradas/salidas a variables del proyecto.</td>
+                <td data-lang="es">Crear cabeceras y módulos de E/S remota TM5, elegirlos a partir del catálogo instalado, y mapear sus entradas/salidas a variables del proyecto.</td>
+                <td data-lang="en">Create TM5 remote I/O head modules and slices from the installed catalog, and map inputs/outputs to project variables.</td>
             </tr>
             <tr>
-                <td><strong>SERCOS — EdgeIO</strong></td>
+                <td data-lang="es"><strong>SERCOS — EdgeIO</strong></td>
+                <td data-lang="en"><strong>SERCOS — EdgeIO</strong></td>
                 <td style="text-align: center;"><span class="badge">10</span></td>
-                <td>Lo mismo que TM5, sobre la familia de E/S remota Modicon Edge I/O.</td>
+                <td data-lang="es">Lo mismo que TM5, sobre la familia de E/S remota Modicon Edge I/O.</td>
+                <td data-lang="en">Same as TM5, on the Modicon Edge I/O remote I/O family.</td>
             </tr>
             <tr>
-                <td><strong>Diagnósticos</strong></td>
+                <td data-lang="es"><strong>Diagnósticos</strong></td>
+                <td data-lang="en"><strong>Diagnostics</strong></td>
                 <td style="text-align: center;"><span class="badge">4</span></td>
-                <td>Comprobar el estado de la conexión con Machine Expert, y verificar internamente que ciertas garantías de la propia plataforma se mantienen ciertas (uso interno de validación, no herramientas de ingeniería diaria).</td>
+                <td data-lang="es">Comprobar el estado de la conexión con Machine Expert, y verificar internamente que ciertas garantías de la propia plataforma se mantienen ciertas (uso interno de validación, no herramientas de ingeniería diaria).</td>
+                <td data-lang="en">Check connection status with Machine Expert and internally verify that platform guarantees hold true (internal validation use, not daily engineering tools).</td>
             </tr>
         </tbody>
     </table>
 
     <!-- INTRODUCCIÓN A LAS DEMOS -->
     <div style="margin-top: 25px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
-        <span class="badge" style="font-size: 8pt; padding: 3px 8px; border-radius: 4px;">DEMOS</span>
-        <span style="font-weight: bold; font-size: 10.5pt; color: #2c3e50; text-transform: uppercase; letter-spacing: 0.5px;">
+        <span class="badge" style="font-size: 8pt; padding: 3px 8px; border-radius: 4px;" data-lang="es">DEMOS</span>
+        <span class="badge" style="font-size: 8pt; padding: 3px 8px; border-radius: 4px;" data-lang="en">DEMOS</span>
+        <span style="font-weight: bold; font-size: 10.5pt; color: #2c3e50; text-transform: uppercase; letter-spacing: 0.5px;" data-lang="es">
             Ejecución práctica en vídeo
         </span>
+        <span style="font-weight: bold; font-size: 10.5pt; color: #2c3e50; text-transform: uppercase; letter-spacing: 0.5px;" data-lang="en">
+            Practical Video Execution
+        </span>
     </div>
-    <p style="font-size: 9.5pt; color: #555; margin-bottom: 15px;">
+    <p style="font-size: 9.5pt; color: #555; margin-bottom: 15px;" data-lang="es">
         Para poner a prueba el catálogo de herramientas detallado en la tabla anterior, los siguientes vídeos muestran varios ejemplos de operación en tiempo real que ilustran la respuesta inmediata de EcoStruxure Machine Expert ante las peticiones enviadas desde Claude Desktop:
+    </p>
+    <p style="font-size: 9.5pt; color: #555; margin-bottom: 15px;" data-lang="en">
+        To test the tool catalog detailed in the table above, the following videos show several real-time operation examples illustrating EcoStruxure Machine Expert's immediate response to requests sent from Claude Desktop:
     </p>
 
     <!-- GALERÍA DE DEMOSTRACIONES EN VÍDEO -->
@@ -393,8 +517,11 @@
                 <source src="./Video1.mp4" type="video/mp4">
                 Tu navegador no soporta la reproducción de vídeo HTML5.
             </video>
-            <div class="video-caption">
+            <div class="video-caption" data-lang="es">
                 <strong>Demo 1:</strong> Operación en tiempo real y modificación del árbol de proyectos mediante Claude Desktop.
+            </div>
+            <div class="video-caption" data-lang="en">
+                <strong>Demo 1:</strong> Real-time operation and project tree modification via Claude Desktop.
             </div>
         </div>
 
@@ -403,72 +530,156 @@
                 <source src="./Video2.mp4" type="video/mp4">
                 Tu navegador no soporta la reproducción de vídeo HTML5.
             </video>
-            <div class="video-caption">
+            <div class="video-caption" data-lang="es">
                 <strong>Demo 2:</strong> Reordenación de módulos hardware SERCOS y validación de seguridad de parámetros.
+            </div>
+            <div class="video-caption" data-lang="en">
+                <strong>Demo 2:</strong> SERCOS hardware module reordering and parameter safety validation.
             </div>
         </div>
     </div>
 
     <!-- SECCIÓN 05 -->
-    <h2>05. ¿Y qué podría aportarnos?</h2>
-    <p>Un catálogo de herramientas solo cobra sentido si resuelve problemas concretos en el flujo de trabajo real. El impacto directo se distribuye según el perfil y la responsabilidad dentro de la organización:</p>
-    <ul>
+    <h2 data-lang="es">05. ¿Y qué podría aportarnos?</h2>
+    <h2 data-lang="en">05. What Value Could It Bring Us?</h2>
+    
+    <p data-lang="es">Un catálogo de herramientas solo cobra sentido si resuelve problemas concretos en el flujo de trabajo real. El impacto directo se distribuye según el perfil y la responsabilidad dentro de la organización:</p>
+    <p data-lang="en">A tool catalog only makes sense if it solves concrete problems in the actual workflow. The direct impact is distributed according to the role and responsibility within the organization:</p>
+    
+    <ul data-lang="es">
         <li><strong>Ingeniero de aplicaciones:</strong> Libera tiempo valioso al automatizar tareas mecánicas y repetitivas en la estructuración del template, permitiendo enfocar el esfuerzo técnico en las decisiones críticas de arquitectura, lógica de control y optimización del rendimiento de máquina.</li>
         <li><strong>Responsable de mantenimiento de proyectos:</strong> Aporta una trazabilidad completa y estructurada de cada modificación en el sistema, sustituyendo las intervenciones manuales indocumentadas por un registro transparente de cambios.</li>
         <li><strong>Ingeniero de nueva incorporación:</strong> Acelera drásticamente el proceso de onboarding sobre el marco PacDrive3, reduciendo la curva de aprendizaje ante un entorno caracterizado por su elevada densidad y complejidad técnica.</li>
         <li><strong>Dirección y negocio:</strong> Minimiza los riesgos operacionales en la fase inicial de desarrollo, acelera los ciclos de entrega comercial y posiciona a la organización a la vanguardia en la adopción práctica de IA aplicada a la automatización industrial.</li>
         <li><strong>Cliente final:</strong> Permite entregas de proyectos con menor fricción en la fase de ingeniería, mayor robustez en la plataforma de más alta gama del catálogo y puestas en marcha más rápidas.</li>
     </ul>
+    <ul data-lang="en">
+        <li><strong>Application Engineer:</strong> Frees up valuable time by automating mechanical and repetitive tasks in template structuring, allowing technical effort to focus on critical architecture decisions, control logic, and machine performance optimization.</li>
+        <li><strong>Project Maintenance Lead:</strong> Provides complete and structured traceability for every system modification, replacing undocumented manual interventions with a transparent change log.</li>
+        <li><strong>New Onboarding Engineer:</strong> Drastically accelerates the onboarding process on the PacDrive3 framework, reducing the learning curve in an environment characterized by high technical density and complexity.</li>
+        <li><strong>Management & Business:</strong> Minimizes operational risks in the initial development phase, accelerates commercial delivery cycles, and positions the organization at the forefront of practical AI adoption in industrial automation.</li>
+        <li><strong>End Client:</strong> Enables project deliveries with less engineering friction, greater robustness on the highest-end platform in the catalog, and faster commissioning.</li>
+    </ul>
 
     <!-- SECCIÓN 06 -->
-    <h2>06. Hacer que funcione no era suficiente</h2>
-    <p>A medida que crecía el catálogo apareció una cuestión crítica: ¿cómo garantizar que las herramientas ejecutan exactamente lo que prometen sin comprometer la integridad del proyecto? Se plantearon dos niveles complementarios de validación:</p>
-    <ul>
+    <h2 data-lang="es">06. Hacer que funcione no era suficiente</h2>
+    <h2 data-lang="en">06. Making It Work Wasn't Enough</h2>
+    
+    <p data-lang="es">A medida que crecía el catálogo apareció una cuestión crítica: ¿cómo garantizar que las herramientas ejecutan exactamente lo que prometen sin comprometer la integridad del proyecto? Se plantearon dos niveles complementarios de validación:</p>
+    <p data-lang="en">As the catalog grew, a critical question arose: how to ensure that tools execute exactly what they promise without compromising project integrity? Two complementary levels of validation were established:</p>
+    
+    <ul data-lang="es">
         <li><strong>662 tests automatizados:</strong> Comprueban la coherencia interna del código, garantizando la estabilidad del servidor MCP y permitiendo iterar rápidamente ante cualquier modificación. Estos tests se ejecutan de forma independiente de EcoStruxure Machine Expert, sin necesidad de abrir ni ejecutar el entorno de ingeniería.</li>
         <li><strong>Validación en vivo contra instalación real:</strong> Verifica los comportamientos dinámicos del API de Scripting que las simulaciones offline no pueden detectar.</li>
     </ul>
+    <ul data-lang="en">
+        <li><strong>662 Automated Tests:</strong> Check internal code consistency, ensuring MCP server stability and allowing rapid iteration upon any modification. These tests run independently of EcoStruxure Machine Expert, without requiring the engineering environment to be open or running.</li>
+        <li><strong>Live Validation Against Real Installation:</strong> Verifies dynamic behaviors of the Scripting API that offline simulations cannot detect.</li>
+    </ul>
 
     <!-- SECCIÓN 07 -->
-    <h2>07. Lo que apareció mientras lo construía</h2>
-    <p>El experimento comenzó buscando automatizar operaciones cotidianas. Durante el desarrollo, también sacó a la luz comportamientos sutiles del software que valía la pena evidenciar:</p>
+    <h2 data-lang="es">07. Lo que apareció mientras lo construía</h2>
+    <h2 data-lang="en">07. What Appeared While Building It</h2>
+    
+    <p data-lang="es">El experimento comenzó buscando automatizar operaciones cotidianas. Durante el desarrollo, también sacó a la luz comportamientos sutiles del software que valía la pena evidenciar:</p>
+    <p data-lang="en">The experiment started by automating everyday operations. During development, it also brought to light subtle software behaviors worth highlighting:</p>
 
     <div class="case-box">
-        <div class="case-title">Caso 1: Convertir un servodrive sin perder su configuración (Lexium LXM62 → LXM52)</div>
-        <p style="margin: 4px 0;">Tras configurar un Lexium LXM62 surgió la necesidad de sustituirlo por un LXM52. El entorno permite cambiar el tipo mediante <em>"Convert Device"</em>. La investigación reveló un detalle importante: si existen módulos hijo incompatibles con el nuevo dispositivo, se eliminan automáticamente durante la conversión sin el aviso explicativo que sí muestra la interfaz gráfica habitual.</p>
-        <p style="margin: 4px 0;" class="solution-text">✓ Solución MCP: La herramienta compara el estado del dispositivo antes y después del cambio, reportando explícitamente cualquier elemento que se haya eliminado.</p>
+        <div class="case-title" data-lang="es">Caso 1: Convertir un servodrive sin perder su configuración (Lexium LXM62 → LXM52)</div>
+        <div class="case-title" data-lang="en">Case 1: Converting a Servo Drive Without Losing Configuration (Lexium LXM62 → LXM52)</div>
+        <p style="margin: 4px 0;" data-lang="es">Tras configurar un Lexium LXM62 surgió la necesidad de sustituirlo por un LXM52. El entorno permite cambiar el tipo mediante <em>"Convert Device"</em>. La investigación reveló un detalle importante: si existen módulos hijo incompatibles con el nuevo dispositivo, se eliminan automáticamente durante la conversión sin el aviso explicativo que sí muestra la interfaz gráfica habitual.</p>
+        <p style="margin: 4px 0;" data-lang="en">After configuring a Lexium LXM62, the need arose to replace it with an LXM52. The environment allows changing the type via <em>"Convert Device"</em>. Research revealed an important detail: if incompatible child modules exist with the new device, they are automatically deleted during conversion without the explanatory warning normally shown by the GUI.</p>
+        <p style="margin: 4px 0;" class="solution-text" data-lang="es">✓ Solución MCP: La herramienta compara el estado del dispositivo antes y después del cambio, reportando explícitamente cualquier elemento que se haya eliminado.</p>
+        <p style="margin: 4px 0;" class="solution-text" data-lang="en">✓ MCP Solution: The tool compares the device state before and after the change, explicitly reporting any element that has been removed.</p>
     </div>
 
     <div class="case-box">
-        <div class="case-title">Caso 2: Reordenar módulos de E/S remota sin pérdidas inadvertidas (EdgeIO)</div>
-        <p style="margin: 4px 0;">Una cabecera EdgeIO exige que su primer módulo sea de alimentación. Al reordenar la isla de módulos, extraer el primer módulo de su posición original provoca su eliminación completa de la estructura sin alerta previa.</p>
-        <p style="margin: 4px 0;" class="solution-text">✓ Solución MCP: La herramienta verifica la lista completa de elementos antes y después de cada movimiento, haciendo visible cualquier desaparición de módulo.</p>
+        <div class="case-title" data-lang="es">Caso 2: Reordenar módulos de E/S remota sin pérdidas inadvertidas (EdgeIO)</div>
+        <div class="case-title" data-lang="en">Case 2: Reordering Remote I/O Modules Without Inadvertent Losses (EdgeIO)</div>
+        <p style="margin: 4px 0;" data-lang="es">Una cabecera EdgeIO exige que su primer módulo sea de alimentación. Al reordenar la isla de módulos, extraer el primer módulo de su posición original provoca su eliminación completa de la estructura sin alerta previa.</p>
+        <p style="margin: 4px 0;" data-lang="en">An EdgeIO head requires its first module to be a power supply. When reordering the module island, extracting the first module from its original position causes its complete deletion from the structure without prior alert.</p>
+        <p style="margin: 4px 0;" class="solution-text" data-lang="es">✓ Solución MCP: La herramienta verifica la lista completa de elementos antes y después de cada movimiento, haciendo visible cualquier desaparición de módulo.</p>
+        <p style="margin: 4px 0;" class="solution-text" data-lang="en">✓ MCP Solution: The tool checks the complete list of elements before and after each movement, making any module disappearance visible.</p>
     </div>
 
     <!-- SECCIÓN 08 & 09 -->
-    <h2>08. Dónde está hoy y El experimento continúa</h2>
-    <p>La primera versión del servidor tiene un alcance deliberadamente acotado y seguro: opera en modo offline sobre el proyecto abierto, con comunicación 100% local y con un catálogo de herramientas cerrado sin capacidad de ejecutar código arbitrario.</p>
+    <h2 data-lang="es">08. Dónde está hoy y El experimento continúa</h2>
+    <h2 data-lang="en">08. Where It Stands Today & The Experiment Continues</h2>
+    
+    <p data-lang="es">La primera versión del servidor tiene un alcance deliberadamente acotado y seguro: opera en modo offline sobre el proyecto abierto, con comunicación 100% local y con un catálogo de herramientas cerrado sin capacidad de ejecutar código arbitrario.</p>
+    <p data-lang="en">The first version of the server has a deliberately limited and secure scope: it operates in offline mode on the open project, with 100% local communication and a closed tool catalog with no capability to execute arbitrary code.</p>
 
-    <p>El roadmap para próximas iteraciones contempla:</p>
-    <ul>
+    <p data-lang="es">El roadmap para próximas iteraciones contempla:</p>
+    <p data-lang="en">The roadmap for future iterations includes:</p>
+    
+    <ul data-lang="es">
         <li><strong>Lenguajes gráficos (FBD, LD):</strong> Extender la manipulación lógica más allá de Texto Estructurado (ST).</li>
         <li><strong>Modo online:</strong> Funciones de diagnóstico y lectura directa sobre el hardware real.</li>
-        <li><strong>Herramientas de alto nivel:</strong> Manipulación directa del template a nivel de módulos completos de máquina (*Template Modules*).</li>
+        <li><strong>Herramientas de alto nivel:</strong> Manipulación directa del template a nivel de módulos completos de máquina (<em>Template Modules</em>).</li>
+    </ul>
+    <ul data-lang="en">
+        <li><strong>Graphical Languages (FBD, LD):</strong> Extend logic manipulation beyond Structured Text (ST).</li>
+        <li><strong>Online Mode:</strong> Diagnostic functions and direct reading on real hardware.</li>
+        <li><strong>High-Level Tools:</strong> Direct manipulation of the template at the level of complete machine modules (<em>Template Modules</em>).</li>
     </ul>
 
-    <!-- REFLEXIÓN FINAL INCLUIDA CON ESTÉTICA DESTACADA -->
+    <!-- REFLEXIÓN FINAL -->
     <div class="quote-box">
-        <strong>Reflexión sobre la Tecnología y la Ingeniería</strong><br><br>
-        "El objetivo de la inteligencia artificial en la ingeniería de automatización no es sustituir el criterio del ingeniero, sino liberarlo de las tareas repetitivas y de baja complejidad para permitirle centrarse en la arquitectura, la optimización y la aportación de valor añadido."
+        <strong data-lang="es">Reflexión sobre la Tecnología y la Ingeniería</strong>
+        <strong data-lang="en">Reflection on Technology and Engineering</strong>
+        <br><br>
+        <span data-lang="es">"El objetivo de la inteligencia artificial en la ingeniería de automatización no es sustituir el criterio del ingeniero, sino liberarlo de las tareas repetitivas y de baja complejidad para permitirle centrarse en la arquitectura, la optimización y la aportación de valor añadido."</span>
+        <span data-lang="en">"The goal of artificial intelligence in automation engineering is not to replace the engineer's judgment, but to free them from repetitive, low-complexity tasks to allow them to focus on architecture, optimization, and value-added contribution."</span>
     </div>
 
     <footer style="margin-top: 40px; padding: 20px 0; border-top: 1px solid #e0e0e0; text-align: center; font-family: sans-serif;">
-        <p style="font-size: 8.5pt; color: #777; margin: 0 0 6px 0;">
+        <p style="font-size: 8.5pt; color: #777; margin: 0 0 6px 0;" data-lang="es">
             <strong>Informe Técnico:</strong> Integración MCP & EcoStruxure Machine Expert — PacDrive3 Template Full
         </p>
-        <p style="font-size: 7.5pt; color: #999; margin: 0;">
+        <p style="font-size: 8.5pt; color: #777; margin: 0 0 6px 0;" data-lang="en">
+            <strong>Technical Report:</strong> MCP Integration & EcoStruxure Machine Expert — PacDrive3 Template Full
+        </p>
+        <p style="font-size: 7.5pt; color: #999; margin: 0;" data-lang="es">
             Este sitio utiliza Google Analytics con fines exclusivamente estadísticos y de medición de tráfico de forma anónima.
+        </p>
+        <p style="font-size: 7.5pt; color: #999; margin: 0;" data-lang="en">
+            This site uses Google Analytics exclusively for statistical and anonymous traffic measurement purposes.
         </p>
     </footer>
 
+    <script>
+        function setLanguage(lang) {
+            // Guardar preferencia
+            localStorage.setItem('preferred_lang', lang);
+
+            // Actualizar elementos con atributo data-lang
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.getAttribute('data-lang') === lang) {
+                    el.classList.add('active-lang');
+                } else {
+                    el.classList.remove('active-lang');
+                }
+            });
+
+            // Actualizar títulos de metadatos o tags si fuera necesario
+            if (lang === 'en') {
+                document.title = "AI Operating EcoStruxure Machine Expert - Technical Report V2.3.2";
+                document.documentElement.lang = 'en';
+            } else {
+                document.title = "IA operando EcoStruxure Machine Expert - Informe Técnico V2.3.2";
+                document.documentElement.lang = 'es';
+            }
+
+            // Cambiar botones activos
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        }
+
+        // Inicializar al cargar la página (por defecto español o idioma guardado)
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferred_lang') || 'es';
+            setLanguage(savedLang);
+        });
+    </script>
 </body>
 </html>

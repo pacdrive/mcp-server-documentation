@@ -382,7 +382,7 @@
     <p data-lang="es">MCP conecta a Claude únicamente con el servidor MCP. El tramo entre el servidor y Machine Expert es un canal aparte, construido específicamente para este proyecto — no forma parte del protocolo estándar MCP. La arquitectura completa de comunicación queda resumida en el siguiente esquema:</p>
     <p data-lang="en">MCP connects Claude exclusively to the MCP server. The leg between the server and Machine Expert is a separate channel, built specifically for this project — it is not part of the standard MCP protocol. The complete communication architecture is summarized in the following diagram:</p>
 
-    <img src="layout.PNG" alt="Arquitectura del servidor MCP" class="layout-image">
+    <img src="layout_ES.png" id="layout-img" alt="Arquitectura del sistema" class="layout-image">
 
     <!-- SECCIÓN 04 -->
     <h2 data-lang="es">04. De una idea a una caja de herramientas</h2>
@@ -740,6 +740,16 @@
                     el.classList.remove('active-lang');
                 }
             });
+
+            // === CAMBIO DINÁMICO DE LA IMAGEN LAYOUT ===
+            const layoutImg = document.getElementById('layout-img');
+            if (layoutImg) {
+                if (lang === 'en') {
+                    layoutImg.src = 'layout_EN.png';
+                } else {
+                    layoutImg.src = 'layout_ES.png';
+                }
+            }
 
             // Actualizar títulos de metadatos o tags si fuera necesario
             if (lang === 'en') {
